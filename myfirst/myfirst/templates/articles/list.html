@@ -6,6 +6,12 @@
 
 {% block content %}
 
-Краткая история мира...
+    {% if listArticles %}
+        {% for a in listArticles%}
+        <a href={% url 'articles:detail' a.id%}>{{a.articleTitle}}</a>
+        {% endfor %}
+    {% else %}
+        Статьи не найдены
+    {% endif %}
 
 {% endblock %}
